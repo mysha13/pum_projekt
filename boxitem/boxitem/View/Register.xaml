@@ -22,7 +22,7 @@
         <TextBox x:Name="LoginRegister"  Text="Login" TextAlignment="Center" Height="23" Margin="51,185,34,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Foreground="#FF787878" Grid.ColumnSpan="5"/>
         <TextBox x:Name="PasswordRegister" Text="Hasło" TextAlignment="Center" Height="24" Margin="51,240,34,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Foreground="#FF787878" Grid.ColumnSpan="5"/>
         <Label Content="max 20 znaków" Margin="51,264,74,126" FontFamily="Arial" Grid.ColumnSpan="3"/>
-        <Label Content="* required fields" Margin="48,396,102,0" FontFamily="Arial" Grid.ColumnSpan="3"/>
+        <Label Content="* Wymagane pola" Margin="48,396,102,0" FontFamily="Arial" Grid.ColumnSpan="3"/>
         <Button x:Name="btnCancel" Content="Anuluj" Margin="21.5,346,20,0" VerticalAlignment="Top" Height="35" FontSize="16" FontFamily="Arial" FontWeight="Bold" Grid.Column="2"/>
         <Button x:Name="btnRegisterRegister" Content="OK" Margin="2.5,291,1,0" VerticalAlignment="Top" Height="35" FontSize="16" FontFamily="Arial" FontWeight="Bold" Grid.Column="2"/>
         <Label Content="*" Margin="2,123,39,275" FontFamily="Arial" FontSize="18" RenderTransformOrigin="13.452,1.339" Grid.Column="4" Grid.ColumnSpan="2"/>

@@ -8,9 +8,9 @@ namespace boxitem
 {
     class CurrentInfo
     {
-        private int UserId { set; get; }
-        private int BoxId { set; get; }
-        private int ItemId { set; get; }
+        public int UserId { set; get; }
+        public int BoxId { set; get; }
+        public int ItemId { set; get; }
 
     }
 }

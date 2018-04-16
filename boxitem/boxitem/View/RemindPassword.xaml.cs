@@ -20,7 +20,7 @@ namespace boxitem
     public partial class RemindPassword : Window
     {
         public RemindPassword()
-        {
+        {            
             InitializeComponent();
         }
     }

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace boxitem
 {
     /// <summary>
-    /// Interaction logic for Boxes.xaml
+    /// Interaction logic for AddBox.xaml
     /// </summary>
-    public partial class Boxes : Window
+    public partial class AddBox : Window
     {
-        public Boxes()
+        public AddBox()
         {
             InitializeComponent();
         }

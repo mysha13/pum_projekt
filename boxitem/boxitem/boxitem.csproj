@@ -35,8 +35,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,51 +63,88 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddItem.xaml.cs">
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="View\AddBox.xaml.cs">
+      <DependentUpon>AddBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddItem.xaml.cs">
       <DependentUpon>AddItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddPhoto.xaml.cs">
+    <Compile Include="View\AddPhoto.xaml.cs">
       <DependentUpon>AddPhoto.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Boxes.xaml.cs">
+    <Compile Include="BoxBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoxBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BoxBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoxBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BoxBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoxBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes.cs">
+      <DependentUpon>BoxBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\Boxes.xaml.cs">
       <DependentUpon>Boxes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BoxesList.xaml.cs">
+    <Compile Include="View\BoxesList.xaml.cs">
       <DependentUpon>BoxesList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FindItem.xaml.cs">
+    <Compile Include="CurrentInfo.cs" />
+    <Compile Include="View\FindItem.xaml.cs">
       <DependentUpon>FindItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Items.xaml.cs">
+    <Compile Include="Items.cs">
+      <DependentUpon>BoxBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\Items.xaml.cs">
       <DependentUpon>Items.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Register.xaml.cs">
+    <Compile Include="View\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RemindPassword.xaml.cs">
+    <Compile Include="View\RemindPassword.xaml.cs">
       <DependentUpon>RemindPassword.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddItem.xaml">
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>BoxBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>BoxBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BoxViewModel.cs" />
+    <Page Include="View\AddBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddPhoto.xaml">
+    <Page Include="View\AddItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Boxes.xaml">
+    <Page Include="View\AddPhoto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BoxesList.xaml">
+    <Page Include="View\Boxes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FindItem.xaml">
+    <Page Include="View\BoxesList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Items.xaml">
+    <Page Include="View\FindItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Items.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,11 +160,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Register.xaml">
+    <Page Include="View\Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RemindPassword.xaml">
+    <Page Include="View\RemindPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,6 +187,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="BoxBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BoxBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BoxBase.edmx.diagram">
+      <DependentUpon>BoxBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,6 +203,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BoxBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BoxBase.edmx</DependentUpon>
+      <LastGenOutput>BoxBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BoxBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BoxBase.edmx</DependentUpon>
+      <LastGenOutput>BoxBase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
